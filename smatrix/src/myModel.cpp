@@ -8,8 +8,8 @@
 #include "myModel.h"
 
 /* Define mandatory model parameters here. */
-const std::string myModel::myModelvars[NmyModelvars] = {"Api0", "Api2", "AK0", "A4pi0", "Aetet", "Aetetp", 
-                                                        "delta_etet", "delta_etetp", "delta1", "delta2",
+const std::string myModel::myModelvars[NmyModelvars] = {"Api0", "Api2", "AK0", "A4pi0", "Aetet_r", "Aetetp_r", 
+                                                        "Aetet_i", "Aetetp_i", "delta1", "delta2",
                                                         "n1r", "n1r", "n3r", "n4r", "n5r", "n1i", "n2i", "n3i", "n4i", "n5i",
                                                         "nd1", "nd2"};
 
@@ -21,12 +21,12 @@ myModel::myModel()
     ModelParamMap.insert(std::make_pair("Api2", std::cref(Api2)));
     ModelParamMap.insert(std::make_pair("AK0", std::cref(AK0)));
     ModelParamMap.insert(std::make_pair("A4pi0", std::cref(A4pi0)));
-    ModelParamMap.insert(std::make_pair("Aetet", std::cref(Aetet)));
-    ModelParamMap.insert(std::make_pair("Aetetp", std::cref(Aetetp)));
-    ModelParamMap.insert(std::make_pair("delta_etet", std::cref(delta_etet)));
-    ModelParamMap.insert(std::make_pair("delta_etetp", std::cref(delta_etetp)));
-    ModelParamMap.insert(std::make_pair("delta1", std::cref(delta2)));
-    ModelParamMap.insert(std::make_pair("delta1", std::cref(delta2)));
+    ModelParamMap.insert(std::make_pair("Aetet_r", std::cref(Aetet_r)));
+    ModelParamMap.insert(std::make_pair("Aetetp_r", std::cref(Aetetp_r)));
+    ModelParamMap.insert(std::make_pair("Aetet_i", std::cref(Aetet_i)));
+    ModelParamMap.insert(std::make_pair("Aetetp_i", std::cref(Aetetp_i)));
+    ModelParamMap.insert(std::make_pair("delta1", std::cref(delta1)));
+    ModelParamMap.insert(std::make_pair("delta2", std::cref(delta2)));
     ModelParamMap.insert(std::make_pair("n1r", std::cref(n1r)));
     ModelParamMap.insert(std::make_pair("n2r", std::cref(n2r)));
     ModelParamMap.insert(std::make_pair("n3r", std::cref(n3r)));
@@ -106,14 +106,14 @@ void myModel::setParameter(const std::string name, const double& value)
         AK0 = value;
     else if(name.compare("A4pi0") == 0)
         A4pi0 = value;
-    else if(name.compare("Aetet") == 0)
-        Aetet = value;
-    else if(name.compare("Aetetp") == 0)
-        Aetetp = value;
-    else if(name.compare("delta_etet") == 0)
-        delta_etet = value;
-    else if(name.compare("delta_etetp") == 0)
-        delta_etetp = value;
+    else if(name.compare("Aetet_r") == 0)
+        Aetet_r = value;
+    else if(name.compare("Aetetp_r") == 0)
+        Aetetp_r = value;
+    else if(name.compare("Aetet_i") == 0)
+        Aetet_i = value;
+    else if(name.compare("Aetetp_i") == 0)
+        Aetetp_i = value;
     else if(name.compare("delta1") == 0)
         delta1 = value;
     else if(name.compare("delta2") == 0)

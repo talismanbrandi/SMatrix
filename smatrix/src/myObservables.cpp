@@ -77,10 +77,10 @@ void myObservables::updateParameters()
     Api2 = my_model->getApi2();
     AK0 = my_model->getAK0();
     A4pi0 = my_model->getA4pi0();
-    Aetet_r = my_model->getAetet() * cos(my_model->getdelta_etet());
-    Aetetp_r = my_model->getAetetp() * cos(my_model->getdelta_etetp());
-    Aetet_i = my_model->getAetet() * sin(my_model->getdelta_etet());
-    Aetetp_i = my_model->getAetetp() * sin(my_model->getdelta_etetp());
+    Aetet_r = my_model->getAetet_r();
+    Aetetp_r = my_model->getAetetp_r();
+    Aetet_i = my_model->getAetet_i();
+    Aetetp_i = my_model->getAetetp_i();
     delta1 = my_model->getdelta1();
     delta2 = my_model->getdelta2();
 
@@ -165,8 +165,8 @@ void myObservables::updateParameters()
     A0T_i.assign(0, Api0_i);
     A0T_i.assign(1, AK0_i);
     A0T_i.assign(2, A4pi0_i);
-    A0T_i.assign(3, Aetet_i);
-    A0T_i.assign(4, Aetetp_i);
+    A0T_i.assign(3, r_CKM * Aetet_i);
+    A0T_i.assign(4, r_CKM * Aetetp_i);
 
     // final state interactions
     A0T_r = FSIR * A0T_r;

@@ -84,38 +84,38 @@ public:
     
     /**
      *
-     * @return the coupling Aetet
+     * @return the coupling Aetet_r
      */
-    double getAetet() const
+    double getAetet_r() const
     {
-        return Aetet;
+        return Aetet_r;
     }
     
     /**
      *
      * @return the coupling Aetetp_r
      */
-    double getAetetp() const
+    double getAetetp_r() const
     {
-        return Aetetp;
+        return Aetetp_r;
     }
 
     /**
      *
-     * @return the coupling delta_etet
+     * @return the coupling Aetet_i
      */
-    double getdelta_etet() const
+    double getAetet_i() const
     {
-        return delta_etet;
+        return Aetet_i;
     }
     
     /**
      *
-     * @return the coupling delta_etetp
+     * @return the coupling Aetetp_i
      */
-    double getdelta_etetp() const
+    double getAetetp_i() const
     {
-        return delta_etetp;
+        return Aetetp_i;
     }
 
     /**
@@ -261,7 +261,7 @@ protected:
 
 private:
     
-    double Api0, Api2, AK0, A4pi0, Aetet, Aetetp, delta_etet, delta_etetp, delta1, delta2; /* Model Parameters */
+    double Api0, Api2, AK0, A4pi0, Aetet_r, Aetetp_r, Aetet_i, Aetetp_i, delta1, delta2; /* Model Parameters */
     double n1r, n2r, n3r, n4r, n5r, n1i, n2i, n3i, n4i, n5i, nd1, nd2; /* Model Parameters */
     bool condition;
     
