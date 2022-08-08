@@ -100,6 +100,8 @@ int main(int argc, char** argv)
         ThObsF.addObsToFactory("aCPetetp", boost::bind(boost::factory<BRetetp*>(), _1, 2) );
 
         ThObsF.addObsToFactory("DACP", boost::bind(boost::factory<DACP*>(), _1) );
+
+        ThObsF.addObsToFactory("chisq_acp", boost::bind(boost::factory<chisq_acp*>(), _1) );
         
         ThObsF.addObsToFactory("A_PI_0", boost::bind(boost::factory<A_PI_0*>(), _1) );
         ThObsF.addObsToFactory("PHI_PI_0", boost::bind(boost::factory<PHI_PI_0*>(), _1) );

@@ -237,6 +237,31 @@ private:
 
 };
 
+class chisq_acp : public myObservables {
+public:
+
+    /**
+     * @brief Constructor.
+     */
+    chisq_acp(const StandardModel& SM_i);
+
+    /**
+     * @return chisq_acp
+     */
+    double computeThValue ();
+
+private:
+
+    BRpppm myBRpppm;
+    BRkpkm myBRkpkm;
+    BRp0p0 myBRp0p0;
+    BRkSkS myBRkSkS;
+    DACP myDACP;
+    double mu_acp_pppm, mu_acp_kpkm, mu_acp_p0p0, mu_acp_kSkS, mu_acp_DACP;
+    double s_acp_pppm, s_acp_kpkm, s_acp_p0p0, s_acp_kSkS, s_acp_DACP;
+
+};
+
 class BR4pi_ppmm : public myObservables {
 public:
 

@@ -351,6 +351,37 @@ double DACP::computeThValue()
 
 }
 
+chisq_acp::chisq_acp(const StandardModel& SM_i)
+: myObservables(SM_i), 
+  myBRpppm(SM_i, 2), myBRkpkm(SM_i, 2), myBRp0p0(SM_i, 2), 
+  myBRkSkS(SM_i, 2), myDACP(SM_i)
+{
+    // NOTE: Make sure these values are aligned with the config file
+    mu_acp_pppm = 0.13;
+    mu_acp_kpkm = -0.07;
+    mu_acp_p0p0 = 0.;
+    mu_acp_kSkS = -1.9;
+    mu_acp_DACP = 0.164;
+
+    s_acp_pppm = 0.14;
+    s_acp_kpkm = 0.11;
+    s_acp_p0p0 = 0.6;
+    s_acp_kSkS = 1.;
+    s_acp_DACP = 0.28;
+}
+
+double chisq_acp::computeThValue()
+{
+    updateParameters();
+
+    return (pow((myBRpppm.computeThValue() - mu_acp_pppm), 2.) / s_acp_pppm / s_acp_pppm
+           + pow((myBRkpkm.computeThValue() - mu_acp_kpkm), 2.) / s_acp_kpkm / s_acp_kpkm
+           + pow((myBRp0p0.computeThValue() - mu_acp_p0p0), 2.) / s_acp_p0p0 / s_acp_p0p0
+           + pow((myBRkSkS.computeThValue() - mu_acp_kSkS), 2.) / s_acp_kSkS / s_acp_kSkS
+           + pow((myDACP.computeThValue() - mu_acp_DACP), 2.) / s_acp_DACP / s_acp_DACP);
+
+}
+
 
 /*******************************************************************************
  * Observables: DCS four body decays                                                                *
@@ -398,6 +429,8 @@ double BR4pi_pmzz::computeThValue()
     else if (obstype == 2) return aCP((A4pi_pmzz).abs2(), (A4pi_pmzzB).abs2());
     else return 0.;
 }
+
+
 
 /*******************************************************************************
  * Observables: Amplitudes and phases                                                               *
